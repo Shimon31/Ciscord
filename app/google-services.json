@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "47761768777",
+    "project_id": "ciscord-d914e",
+    "storage_bucket": "ciscord-d914e.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47761768777:android:7e2fe126f54ed8a7b05a98",
+        "android_client_info": {
+          "package_name": "com.example.shimon.ciscord"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "47761768777-gnv9aqvjp204golit1efc0a77hbrbvic.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBVNsJoZQut7BcdW1gpu4aRMM81y2Kj0F8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "47761768777-gnv9aqvjp204golit1efc0a77hbrbvic.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
