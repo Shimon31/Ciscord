@@ -10,16 +10,22 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.shimon.ciscord.databinding.FragmentLoginBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.ktx.Firebase
 
 class LoginFragment : Fragment() {
     lateinit var binding: FragmentLoginBinding
+    lateinit var firebase : Firebase
 
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentLoginBinding.inflate(layoutInflater, container, false)
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
+
+        FirebaseAuth.getInstance().currentUser?.let {
+            findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
+        }
 
         binding.buttonLogin.setOnClickListener {
             val email = binding.loginEmail.text.toString().trim()
@@ -33,11 +39,11 @@ class LoginFragment : Fragment() {
 
             }
 
-
-            loginUser(email, password)
-
         }
 
+        binding.textViewSignUp.setOnClickListener {
+            findNavController().navigate(R.id.action_loginFragment_to_registerFragment)
+        }
 
 
         return binding.root
@@ -49,15 +55,15 @@ class LoginFragment : Fragment() {
         auth.signInWithEmailAndPassword(email, password)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    // Login successful
                     val user = auth.currentUser
+
+                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment)
                     Toast.makeText(
                         requireContext(),
                         "Login Successfully : ${user?.email}",
                         Toast.LENGTH_SHORT
                     ).show()
 
-                    findNavController().navigate(R.id.action_loginFragment_to_homeFragment2)
 
                 } else {
                     // Login failed

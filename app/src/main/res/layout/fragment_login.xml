@@ -61,6 +61,7 @@
             android:layout_below="@id/buttonLogin"
             android:layout_marginTop="16dp"
             android:gravity="center"
+            android:textColor="#4E63D3"
             android:text="Forgot Password?"
             android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
 
@@ -71,6 +72,7 @@
             android:layout_below="@id/textViewForgotPassword"
             android:layout_marginTop="16dp"
             android:gravity="center"
+            android:textColor="#4E63D3"
             android:text="Sign Up"
             android:textAppearance="@style/TextAppearance.Material3.TitleMedium" />
 

@@ -3,76 +3,84 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     android:background="#D2CFCF"
+    android:gravity="center"
+    android:orientation="vertical"
     android:padding="16dp"
     tools:context=".RegisterFragment">
 
 
-        <ImageView
-            android:layout_width="150dp"
-            android:layout_height="150dp"
-                android:layout_marginBottom="30dp"
-                android:scaleType="centerCrop"
-                android:src="@mipmap/ic_launcher_round"/>
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_marginBottom="30dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_launcher_round" />
 
-        <TextView
-            android:id="@+id/title"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Registration"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:gravity="center"
-            android:padding="16dp" />
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:text="Registration"
+        android:textSize="24sp"
+        android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/registerUsername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Username"
-            android:background="@drawable/edittext_rounded_bg"
-            android:inputType="text"
-            android:maxLines="1"
-            android:padding="12dp"
-            android:singleLine="true" />
+    <EditText
+        android:id="@+id/registerUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_rounded_bg"
+        android:hint="Username"
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="12dp"
+        android:singleLine="true" />
 
-        <EditText
-            android:id="@+id/registerEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Enter Email"
-            android:background="@drawable/edittext_rounded_bg"
-            android:inputType="textEmailAddress"
-            android:maxLines="1"
-            android:padding="12dp"
-            android:singleLine="true" />
+    <EditText
+        android:id="@+id/registerEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_rounded_bg"
+        android:hint="Enter Email"
+        android:inputType="textEmailAddress"
+        android:maxLines="1"
+        android:padding="12dp"
+        android:singleLine="true" />
 
-        <EditText
-            android:id="@+id/registerPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:hint="Password"
-            android:background="@drawable/edittext_rounded_bg"
-            android:inputType="textPassword"
-            android:maxLines="1"
-            android:padding="12dp"
-            android:singleLine="true" />
+    <EditText
+        android:id="@+id/registerPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/edittext_rounded_bg"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:padding="12dp"
+        android:singleLine="true" />
 
-        <androidx.appcompat.widget.AppCompatButton
-            android:layout_marginTop="20dp"
-            android:id="@+id/buttonRegister"
-            android:textColor="@color/white"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/button_gradient_bg"
-            android:text="Register" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/buttonRegister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/button_gradient_bg"
+        android:text="Register"
+        android:textColor="@color/white" />
 
-
+    <TextView
+        android:id="@+id/backToLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Already have an Account"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:textAppearance="@style/TextAppearance.Material3.TitleSmall"
+        android:textColor="#4E63D3"/>
 
 
 </LinearLayout>

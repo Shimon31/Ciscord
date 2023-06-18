@@ -1,15 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
     tools:context=".HomeFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+   <LinearLayout
+       android:id="@+id/topBar"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:background="#2F3136"
+       android:orientation="horizontal"
+       android:paddingStart="16dp"
+       android:paddingTop="8dp"
+       android:paddingEnd="16dp"
+       android:paddingBottom="8dp"
+       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+      <ImageView
+          android:id="@+id/logoutBtn"
+          android:layout_width="24dp"
+          android:layout_height="24dp"
+          android:contentDescription="Back"
+          android:src="@drawable/round_logout_24"/>
+
+      <TextView
+          android:id="@+id/title"
+          android:layout_width="0dp"
+          android:layout_height="wrap_content"
+          android:layout_weight="1"
+          android:gravity="center"
+          android:paddingStart="16dp"
+          android:paddingEnd="16dp"
+          android:text="Chat Channels"
+          android:textColor="@android:color/white"
+          android:textSize="18sp" />
+
+      <ImageView
+          android:id="@+id/searchButton"
+          android:layout_width="24dp"
+          android:layout_height="24dp"
+          android:contentDescription="Search"
+          android:src="@drawable/round_search_24"
+          app:tint="@android:color/white" />
+
+      <ImageView
+          android:id="@+id/menuButton"
+          android:layout_width="24dp"
+          android:layout_height="24dp"
+          android:contentDescription="Menu"
+          android:src="@drawable/baseline_menu_24"
+          app:tint="@android:color/white" />
+   </LinearLayout>
+
+   <androidx.recyclerview.widget.RecyclerView
+       android:id="@+id/recyclerView"
+       android:layout_width="match_parent"
+       android:layout_height="0dp"
+      tools:listitem="@layout/item_user"
+       app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+      app:layout_constraintTop_toBottomOf="@id/topBar"
+      app:layout_constraintStart_toStartOf="parent"
+       app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
