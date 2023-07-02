@@ -47,13 +47,14 @@
           android:src="@drawable/round_search_24"
           app:tint="@android:color/white" />
 
-      <ImageView
-          android:id="@+id/menuButton"
-          android:layout_width="24dp"
-          android:layout_height="24dp"
-          android:contentDescription="Menu"
-          android:src="@drawable/baseline_menu_24"
-          app:tint="@android:color/white" />
+      <de.hdodenhof.circleimageview.CircleImageView
+          android:id="@+id/profile_image"
+          android:layout_width="18dp"
+          android:layout_height="26dp"
+          android:layout_marginLeft="5dp"
+          android:src="@drawable/formal"
+          app:civ_border_color="#FFFFFF"
+          app:civ_border_width="2dp" />
    </LinearLayout>
 
    <androidx.recyclerview.widget.RecyclerView
