@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import coil.load
 import com.example.shimon.ciscord.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -24,7 +25,7 @@ class ProfileFragment : Fragment() {
 
     private var userId = ""
 
-    private var bundle = Bundle()
+   var bundle = Bundle()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -93,6 +94,7 @@ class ProfileFragment : Fragment() {
                     binding.userEmail.text = it.email
                     binding.bio.text = it.bio
                     binding.fullName.text = it.fullName
+                    binding.profileImage.load(it.profileImage)
 
 
                 }

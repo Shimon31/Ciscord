@@ -94,7 +94,7 @@ class HomeFragment : Fragment(), UserAdapter.UserListener {
                         userList.add(user)
                     } else {
                         currentUser = user
-                        setprofile()
+                        user.profileImage?.let { it1 -> setprofile(it1) }
                     }
 
 
@@ -111,9 +111,9 @@ class HomeFragment : Fragment(), UserAdapter.UserListener {
 
     }
 
-    private fun setprofile() {
+    private fun setprofile(imageLink:String) {
         currentUser?.let {
-            binding.profileImage.load("https://hips.hearstapps.com/hmg-prod/images/gettyimages-1061959920.jpg")
+            binding.profileImage.load(imageLink)
         }
     }
 
