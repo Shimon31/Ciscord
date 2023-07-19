@@ -25,7 +25,7 @@ class ProfileFragment : Fragment() {
 
     private var userId = ""
 
-   var bundle = Bundle()
+    var bundle = Bundle()
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -56,14 +56,14 @@ class ProfileFragment : Fragment() {
         }
 
         binding.chatWithUserBTn.setOnClickListener {
-
+            bundle.putString(editProfileFragment.USERID, userId)
             if (binding.chatWithUserBTn.text == edit) {
-
-                bundle.putString(editProfileFragment.USERID, userId)
                 findNavController().navigate(
                     R.id.action_profileFragment_to_editProfileFragment,
                     bundle
                 )
+            } else {
+                findNavController().navigate(R.id.action_profileFragment_to_chatFragment, bundle)
             }
 
         }
