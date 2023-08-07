@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    tools:context=".ProfileFragment">
+
+    <include
+        android:id="@+id/topBar"
+        layout="@layout/top_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Create a Group"
+        android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+        android:gravity="center"
+        android:layout_margin="10dp"
+        android:fontFamily="@font/belgrano"/>
+
+
+    <ImageView
+        android:id="@+id/groupImage"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_margin="15dp"
+        android:layout_gravity="center_horizontal"
+        android:contentDescription="Profile Image"
+        android:scaleType="centerCrop"
+        android:src="@drawable/group" />
+
+    <EditText
+        android:id="@+id/GRPName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="16dp"
+        android:padding="8dp"
+        android:text="Group Name"
+        android:gravity="center_horizontal"
+        android:background="@drawable/edittext_rounded_bg"
+        android:textColor="@android:color/black"
+        android:textSize="24sp" />
+
+    <EditText
+        android:id="@+id/GRPBio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="16dp"
+        android:text="Group Bio"
+        android:padding="8dp"
+        android:gravity="center"
+        android:background="@drawable/edittext_rounded_bg"
+        android:textColor="@android:color/black"
+        android:textSize="24sp" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/createGrpBTN"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:padding="8dp"
+        android:background="@drawable/button_gradient_bg"
+        android:text="Create Group"
+        android:textColor="@color/white"/>
+
+
+</LinearLayout>

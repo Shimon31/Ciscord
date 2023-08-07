@@ -6,56 +6,14 @@
     android:layout_height="match_parent"
     tools:context=".HomeFragment">
 
-   <LinearLayout
+   <include
        android:id="@+id/topBar"
+      layout="@layout/top_bar"
        android:layout_width="match_parent"
        android:layout_height="wrap_content"
-       android:background="#2F3136"
-       android:orientation="horizontal"
-       android:paddingStart="16dp"
-       android:paddingTop="8dp"
-       android:paddingEnd="16dp"
-       android:paddingBottom="8dp"
-       app:layout_constraintEnd_toEndOf="parent"
+       app:layout_constraintTop_toTopOf="parent"
        app:layout_constraintStart_toStartOf="parent"
-       app:layout_constraintTop_toTopOf="parent">
-
-      <ImageView
-          android:id="@+id/logoutBtn"
-          android:layout_width="24dp"
-          android:layout_height="24dp"
-          android:contentDescription="Back"
-          android:src="@drawable/round_logout_24"/>
-
-      <TextView
-          android:id="@+id/title"
-          android:layout_width="0dp"
-          android:layout_height="wrap_content"
-          android:layout_weight="1"
-          android:gravity="center"
-          android:paddingStart="16dp"
-          android:paddingEnd="16dp"
-          android:text="Chat Channels"
-          android:textColor="@android:color/white"
-          android:textSize="18sp" />
-
-      <ImageView
-          android:id="@+id/searchButton"
-          android:layout_width="24dp"
-          android:layout_height="24dp"
-          android:contentDescription="Search"
-          android:src="@drawable/round_search_24"
-          app:tint="@android:color/white" />
-
-      <de.hdodenhof.circleimageview.CircleImageView
-          android:id="@+id/profile_image"
-          android:layout_width="30dp"
-          android:layout_height="30dp"
-          android:layout_marginLeft="5dp"
-          android:src="@drawable/formal"
-          app:civ_border_color="#FFFFFF"
-          app:civ_border_width="2dp" />
-   </LinearLayout>
+       app:layout_constraintEnd_toEndOf="parent"/>
 
    <androidx.recyclerview.widget.RecyclerView
        android:id="@+id/recyclerView"
@@ -67,5 +25,16 @@
       app:layout_constraintStart_toStartOf="parent"
        app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"/>
+
+   <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+       android:id="@+id/groupList"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      android:layout_margin="15dp"
+      app:icon="@drawable/baseline_group_24"
+      android:text="Groups"
+      android:textAppearance="@style/TextAppearance.Material3.TitleMedium"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

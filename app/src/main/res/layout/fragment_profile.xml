@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="16dp"
+    android:gravity="center_horizontal"
     tools:context=".ProfileFragment">
 
 
@@ -12,6 +12,7 @@
         android:id="@+id/profileImage"
         android:layout_width="96dp"
         android:layout_height="96dp"
+        android:layout_margin="15dp"
         android:layout_gravity="center_horizontal"
         android:contentDescription="Profile Image"
         android:scaleType="centerCrop"
@@ -50,11 +51,12 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/chatWithUserBTn"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="50dp"
+        android:padding="16dp"
         android:background="@drawable/button_gradient_bg"
-        android:text="let's Chat"
+        android:text="Let's Chat"
         android:textColor="@color/white"/>
 
 

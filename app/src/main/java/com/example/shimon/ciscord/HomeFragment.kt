@@ -45,7 +45,7 @@ class HomeFragment : Fragment(), UserAdapter.UserListener {
 
         }
 
-        binding.profileImage.setOnClickListener {
+        binding.topBar.profileImage.setOnClickListener {
 
             currentUser?.let {
                 bundle.putString(ProfileFragment.USERID, it.userId)
@@ -57,7 +57,7 @@ class HomeFragment : Fragment(), UserAdapter.UserListener {
 
 
 
-        binding.logoutBtn.setOnClickListener {
+        binding.topBar.logoutBtn.setOnClickListener {
 
 
             auth.signOut().apply {
@@ -67,6 +67,19 @@ class HomeFragment : Fragment(), UserAdapter.UserListener {
             }
 
         }
+
+        binding.topBar.GroupButton.setOnClickListener {
+
+            findNavController().navigate(R.id.action_homeFragment_to_createGroupFragment)
+
+        }
+
+        binding.groupList.setOnClickListener {
+
+            findNavController().navigate(R.id.action_homeFragment_to_groupsFragment)
+        }
+
+
 
         adapter = UserAdapter(this@HomeFragment)
 
@@ -113,7 +126,7 @@ class HomeFragment : Fragment(), UserAdapter.UserListener {
 
     private fun setprofile(imageLink:String) {
         currentUser?.let {
-            binding.profileImage.load(imageLink)
+            binding.topBar.profileImage.load(imageLink)
         }
     }
 

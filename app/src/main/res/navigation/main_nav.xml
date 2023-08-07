@@ -16,6 +16,12 @@
         <action
             android:id="@+id/action_homeFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_createGroupFragment"
+            app:destination="@id/createGroupFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_groupsFragment"
+            app:destination="@id/groupsFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginFragment"
@@ -63,4 +69,25 @@
         android:name="com.example.shimon.ciscord.ChatFragment"
         android:label="fragment_chat"
         tools:layout="@layout/fragment_chat" />
+    <fragment
+        android:id="@+id/createGroupFragment"
+        android:name="com.example.shimon.ciscord.CreateGroupFragment"
+        android:label="fragment_create_group"
+        tools:layout="@layout/fragment_create_group" />
+    <fragment
+        android:id="@+id/groupsFragment"
+        android:name="com.example.shimon.ciscord.GroupsFragment"
+        android:label="fragment_groups"
+        tools:layout="@layout/fragment_groups" >
+        <action
+            android:id="@+id/action_groupsFragment_to_groupChatFragment"
+            app:destination="@id/groupChatFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/groupChatFragment"
+        android:name="com.example.shimon.ciscord.GroupChatFragment"
+        android:label="fragment_group_chat"
+        tools:layout="@layout/fragment_group_chat" >
+
+    </fragment>
 </navigation>
