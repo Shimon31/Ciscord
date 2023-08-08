@@ -36,7 +36,6 @@ class CreateGroupFragment : Fragment() {
     private var userId = ""
     private var imageLink: String = "no link"
 
-    lateinit var currentUser: FirebaseUser
     private lateinit var userProfileUri: Uri
 
 
@@ -82,7 +81,7 @@ class CreateGroupFragment : Fragment() {
     }
 
     private fun uploadImage(userProfileUri: Uri) {
-        var profileStorage: StorageReference =
+        val profileStorage: StorageReference =
             userStorage.child("Upload").child(userId).child("profile_Image")
 
         profileStorage.putFile(userProfileUri).addOnCompleteListener {
@@ -140,10 +139,10 @@ class CreateGroupFragment : Fragment() {
             when (resultCode) {
                 Activity.RESULT_OK -> {
                     //Image Uri will not be null for RESULT_OK
-                    data?.data.let {
-                        if (it != null) {
+                    data?.data?.let {
+
                             userProfileUri = it
-                        }
+
                         binding.groupImage.setImageURI(it)
                     }
 

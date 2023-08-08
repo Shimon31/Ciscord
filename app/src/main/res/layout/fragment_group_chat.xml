@@ -1,14 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/chating_bg"
     tools:context=".GroupChatFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/topChatLayout"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-</FrameLayout>
+        <ImageView
+            android:id="@+id/backBTN"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:padding="12dp"
+            android:src="@drawable/round_arrow_back_ios_24"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/profile_Picture"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:civ_border_width="2dp"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/formal"
+            app:civ_border_color="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/backBTN"
+            app:layout_constraintStart_toEndOf="@id/backBTN"
+            app:layout_constraintTop_toTopOf="@id/backBTN"/>
+
+        <TextView
+            android:id="@+id/profileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:text="Shimon Bhuiya"
+            android:fontFamily="@font/belgrano"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="@id/profile_Picture"
+            android:textAppearance="@style/TextAppearance.Material3.TitleLarge"
+            app:layout_constraintStart_toEndOf="@id/profile_Picture"
+            app:layout_constraintTop_toTopOf="@id/profile_Picture" />
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/gmailTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="shimon@gmail.com"
+            android:textColor="#BFBCBC"
+            android:layout_marginLeft="8dp"
+            android:textAppearance="@style/TextAppearance.Material3.TitleMedium"
+            android:fontFamily="@font/belgrano"
+            app:layout_constraintTop_toBottomOf="@id/profileName"
+            app:layout_constraintStart_toEndOf="@id/profile_Picture"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/mainChatLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/top_roundend_chat"
+        app:layout_constraintBottom_toTopOf="@id/bottomChatLayout"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/topChatLayout">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/chatRCV"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_margin="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:listitem="@layout/right_chat_item" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/bottomChatLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#B1B2B5"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <EditText
+            android:id="@+id/chatET"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/round_edit_24"
+            android:hint="Enter Your Message..."
+            android:layout_margin="4dp"
+            android:padding="4dp"
+            android:textColorHint="#171414"
+            android:fontFamily="@font/belgrano"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/sendBTN"/>
+
+        <ImageView
+            android:id="@+id/sendBTN"
+            android:layout_width="56dp"
+            android:layout_height="56dp"
+            android:padding="8dp"
+            android:src="@drawable/round_send_24"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
