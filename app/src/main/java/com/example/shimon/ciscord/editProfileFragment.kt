@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.navigation.fragment.findNavController
 import coil.load
 import com.example.shimon.ciscord.databinding.FragmentEditProfileBinding
 import com.github.dhaval2404.imagepicker.ImagePicker
@@ -109,6 +110,7 @@ class editProfileFragment : Fragment() {
                     profileUpdateWithImage(data.toString())
 
                     Toast.makeText(requireContext(), "Image Uploaded Successfully", Toast.LENGTH_SHORT).show()
+                    findNavController().navigate(R.id.action_editProfileFragment_to_homeFragment)
 
                 }
             }

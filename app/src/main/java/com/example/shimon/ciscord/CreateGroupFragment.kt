@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.navigation.fragment.findNavController
 import coil.load
 import com.example.shimon.ciscord.databinding.FragmentCreateGroupBinding
 import com.example.shimon.ciscord.databinding.FragmentEditProfileBinding
@@ -42,13 +43,11 @@ class CreateGroupFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentCreateGroupBinding.inflate(inflater, container, false)
 
         FirebaseAuth.getInstance().currentUser?.let {
-
             userId = it.uid
-
         }
         userDB = FirebaseDatabase.getInstance().reference
         userStorage = FirebaseStorage.getInstance().reference
@@ -56,7 +55,7 @@ class CreateGroupFragment : Fragment() {
 
 
         binding.createGrpBTN.setOnClickListener {
-
+            binding.progressBar.visibility = View.VISIBLE
             uploadImage(userProfileUri)
 
         }
@@ -81,14 +80,15 @@ class CreateGroupFragment : Fragment() {
     }
 
     private fun uploadImage(userProfileUri: Uri) {
+        val groupId = userDB.push().key ?: UUID.randomUUID().toString()
         val profileStorage: StorageReference =
-            userStorage.child("Upload").child(userId).child("profile_Image")
+            userStorage.child("Upload").child(groupId).child("profile_Image${groupId}")
 
         profileStorage.putFile(userProfileUri).addOnCompleteListener {
             if (it.isSuccessful) {
                 profileStorage.downloadUrl.addOnSuccessListener { data ->
 
-                    profileUpdateWithImage(data.toString())
+                    profileUpdateWithImage(data.toString(),groupId)
 
                     Toast.makeText(
                         requireContext(),
@@ -97,16 +97,16 @@ class CreateGroupFragment : Fragment() {
                     ).show()
 
                 }
+            }else{
+                binding.progressBar.visibility = View.GONE
             }
         }
 
     }
 
-    private fun profileUpdateWithImage(imageLink: String) {
+    private fun profileUpdateWithImage(imageLink: String,groupId:String) {
 
         val groupMember = mutableListOf<String>(userId)
-        val groupId = userDB.push().key ?: UUID.randomUUID().toString()
-
         val userMap: MutableMap<String, Any> = mutableMapOf()
 
         userMap["groupName"] = binding.GRPName.text.toString().trim()
@@ -122,7 +122,11 @@ class CreateGroupFragment : Fragment() {
                 if (it.isSuccessful) {
                     Toast.makeText(requireContext(), "Group Created", Toast.LENGTH_SHORT)
                         .show()
+                    binding.progressBar.visibility = View.GONE
+                    findNavController().navigate(R.id.action_createGroupFragment_to_groupsFragment)
+                    findNavController().popBackStack(R.id.createGroupFragment,true)
                 } else {
+                    binding.progressBar.visibility = View.GONE
                     Toast.makeText(requireContext(), "${it.exception?.message}", Toast.LENGTH_SHORT)
                         .show()
                 }

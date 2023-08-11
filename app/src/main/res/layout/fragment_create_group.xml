@@ -44,7 +44,7 @@
         android:layout_gravity="center_horizontal"
         android:layout_margin="16dp"
         android:padding="8dp"
-        android:text="Group Name"
+        android:hint="Group Name"
         android:gravity="center_horizontal"
         android:background="@drawable/edittext_rounded_bg"
         android:textColor="@android:color/black"
@@ -56,13 +56,21 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="16dp"
-        android:text="Group Bio"
+        android:hint="Group Bio"
         android:padding="8dp"
         android:gravity="center"
         android:background="@drawable/edittext_rounded_bg"
         android:textColor="@android:color/black"
         android:textSize="24sp" />
 
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:visibility="gone"
+            />
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/createGrpBTN"
         android:layout_width="match_parent"

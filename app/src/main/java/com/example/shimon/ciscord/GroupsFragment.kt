@@ -32,11 +32,10 @@ class GroupsFragment : Fragment(), GroupAdapter.Listener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = FragmentGroupsBinding.inflate(layoutInflater, container, false)
 
         FirebaseAuth.getInstance().currentUser?.let {
-
             currentUserID = it.uid
         }
 
@@ -56,11 +55,8 @@ class GroupsFragment : Fragment(), GroupAdapter.Listener {
         userDB.child(DBNOTES.GROUP).addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 groupList.clear()
-
                 snapshot.children.forEach {
                     it.getValue(Group::class.java)?.let { group ->
-
-
                         groupList.add(group)
                     }
 
@@ -72,7 +68,6 @@ class GroupsFragment : Fragment(), GroupAdapter.Listener {
                     listener = this@GroupsFragment
                 )
                 binding.groupRCV.adapter = adapter
-
             }
 
             override fun onCancelled(error: DatabaseError) {

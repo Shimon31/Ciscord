@@ -63,7 +63,11 @@
         android:id="@+id/editProfileFragment"
         android:name="com.example.shimon.ciscord.editProfileFragment"
         android:label="fragment_edit_profile"
-        tools:layout="@layout/fragment_edit_profile" />
+        tools:layout="@layout/fragment_edit_profile" >
+        <action
+            android:id="@+id/action_editProfileFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
     <fragment
         android:id="@+id/chatFragment"
         android:name="com.example.shimon.ciscord.ChatFragment"
@@ -73,7 +77,11 @@
         android:id="@+id/createGroupFragment"
         android:name="com.example.shimon.ciscord.CreateGroupFragment"
         android:label="fragment_create_group"
-        tools:layout="@layout/fragment_create_group" />
+        tools:layout="@layout/fragment_create_group" >
+        <action
+            android:id="@+id/action_createGroupFragment_to_groupsFragment"
+            app:destination="@id/groupsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/groupsFragment"
         android:name="com.example.shimon.ciscord.GroupsFragment"
